@@ -1,0 +1,25 @@
+.fieldsetTwo {
+  padding-bottom: 20px;
+  margin: 30px 0;
+  display: flex;
+}
+.name {
+  margin-right: 50px;
+}
+.product {
+  display: flex;
+}
+.product .notActive {
+  margin: 0 12px;
+  padding: 5px 10px;
+  border-radius: 2px;
+  border: none;
+}
+.product .active {
+  margin: 0 12px;
+  padding: 5px 10px;
+  border-radius: 2px;
+  border: none;
+  background-color: rgb(80, 80, 241);
+  color: #fff;
+}

@@ -1,0 +1,28 @@
+.fieldsetOne {
+  padding-bottom: 20px;
+  margin: 30px 0;
+  display: flex;
+  flex-direction: column;
+}
+.fieldsetOne input {
+  width: 500px;
+  margin-bottom: 25px;
+  margin-top: 4px;
+}
+.fieldsetOne button {
+  margin: 10px 10px 10px 0;
+  width: 180px;
+  border-radius: 2px;
+}
+.divButtonNext {
+  display: flex;
+  justify-content: flex-end;
+}
+.buttonNext {
+  width: 180px;
+  height: 35px;
+}
+.warning {
+  margin: 10px;
+  color: #f00;
+}
