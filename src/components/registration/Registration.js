@@ -1,37 +1,37 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { Consummation } from "../consummation/Consummation.js";
 import styles from "./styles.module.css";
+import { AppContext } from "../../contexts/appContext.js";
 
 export const Registration = () => {
+  const { savePeople, people, saveProduct, products } = useContext(AppContext);
+
   const [lastName, setLastName] = useState("");
-  const [names, setNames] = useState([]);
   const [lastProduct, setLastProduct] = useState({
-    id: 0,
-    product: "",
+    name: "",
     value: 0,
     number: 0,
     people: [],
   });
-  const [product, setProduct] = useState([]);
   const [next, setNext] = useState(false);
   const [checkFields, setCheckFields] = useState(false);
 
   useEffect(() => {
-    console.log(names);
-    console.log(product);
-  }, [names, product]);
+    console.log("People: ", people);
+    console.log("Products: ", products);
+  }, [people, products]);
 
   const insertName = (event) => {
     setLastName(event.target.value);
   };
   const addClient = () => {
     if (lastName !== "") {
-      setNames(() => [...names, lastName]);
+      savePeople(lastName);
     }
   };
 
   const insertProduct = (event) => {
-    setLastProduct({ ...lastProduct, product: event.target.value });
+    setLastProduct({ ...lastProduct, name: event.target.value });
   };
   const insertProductValue = (event) => {
     if (event.target.value !== "") {
@@ -48,22 +48,15 @@ export const Registration = () => {
   };
   const addProduct = () => {
     if (
-      lastProduct.product !== "" &&
+      lastProduct.name !== "" &&
       lastProduct.value > 0 &&
       lastProduct.number > 0
     ) {
-      const id = product.length + 1;
-      lastProduct.id = id;
-      setProduct(() => [...product, lastProduct]);
+      saveProduct(lastProduct);
     }
   };
 
   const clickedNext = () => {
-    // if (names.length > 0 && product.length > 0) {
-    //   setNext(true);
-    // } else {
-    //   setCheckFields(true);
-    // }
     setNext(true);
   };
 
@@ -90,7 +83,7 @@ export const Registration = () => {
             Produto:
             <input
               type="text"
-              value={lastProduct.product}
+              value={lastProduct.name}
               onChange={insertProduct}
             ></input>
             Valor: (Ex: 59,90)
@@ -117,12 +110,7 @@ export const Registration = () => {
           </div>
         </div>
       )}
-      <Consummation
-        names={names}
-        product={product}
-        next={next}
-        setProduct={setProduct}
-      />
+      <Consummation next={next} />
     </div>
   );
 };

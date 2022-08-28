@@ -1,24 +1,23 @@
-import { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { AppContext } from "../../contexts/appContext";
 import styles from "./styles.module.css";
 
 export const Consummation = (props) => {
-  useEffect(() => {
-    console.log(props.product);
-  }, [props.product]);
+  const { people, products, addConsumer } = useContext(AppContext);
 
-  const buttonProduct = (person, item, id) => {
-    const products = [...props.product];
+  const [click, setClick] = useState(false);
 
-    const selectedProduct = products.find((f) => f.id === id);
+  console.log("products: ", products);
 
-    selectedProduct.people.push(person);
-
-    console.log(props.product);
+  const buttonProduct = (person, product) => {
+    addConsumer(person, product);
+    setClick(!click);
   };
 
-  const changeStyle = (name) => {
-    const isClicked = props.product.find((f) => f.people.includes(name));
-    return isClicked ? styles.active : styles.notActive;
+  const changeStyle = (name, item) => {
+    const find = products.find((f) => f.name === item.name);
+
+    return find.people.includes(name) ? styles.active : styles.notAtive;
   };
 
   return (
@@ -27,20 +26,20 @@ export const Consummation = (props) => {
         <div>
           <fieldset>
             <legend>Clique nos produtos que cada pessoa consumiu:</legend>
-            {props.names.map((person, index) => {
+            {people.map((person, index) => {
               return (
                 <div key={index} className={styles.fieldsetTwo}>
                   <div className={styles.name}>
                     {person[0].toUpperCase() + person.substr(1)}:
                   </div>
-                  {props.product.map((item, index) => {
+                  {products.map((item, index) => {
                     return (
                       <div className={styles.product} key={index}>
                         <button
-                          onClick={() => buttonProduct(person, item, item.id)}
-                          className={changeStyle(person)}
+                          onClick={() => buttonProduct(person, item)}
+                          className={changeStyle(person, item)}
                         >
-                          {item.product}
+                          {item.name}
                         </button>
                       </div>
                     );
