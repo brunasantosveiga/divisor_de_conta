@@ -7,12 +7,44 @@ const AppProvider = ({ children }) => {
 
   const [products, setProducts] = useState([]);
 
+  const [personAndConsumption, setPersonAndConsumption] = useState([]);
+
   const savePeople = (name) => {
     setPeople([...people, name]);
   };
 
   const saveProduct = (product) => {
     setProducts([...products, product]);
+  };
+
+  const saveConsumption = () => {
+    let calcConsumption = [];
+    products.map((product) => {
+      product.people.map((pessoa) => {
+        if (product.people.indexOf(pessoa) >= 0) {
+          let personIndex = product.people.indexOf(pessoa);
+
+          let obj = calcConsumption.find((item) => item.name == pessoa);
+          if (obj) {
+            obj.consumption = obj.consumption + product.dividedValue;
+          } else {
+            calcConsumption.push({
+              name: product.people[personIndex],
+              consumption: product.dividedValue,
+              tip: false,
+            });
+          }
+        }
+      });
+    });
+    setPersonAndConsumption(calcConsumption);
+  };
+
+  const changeTip = (person, isTip) => {
+    let teste = personAndConsumption.find(
+      (people) => people.name == person.name
+    );
+    teste.tip = isTip;
   };
 
   const addConsumer = (name, product) => {
@@ -25,7 +57,16 @@ const AppProvider = ({ children }) => {
 
   return (
     <AppContext.Provider
-      value={{ people, savePeople, products, saveProduct, addConsumer }}
+      value={{
+        people,
+        savePeople,
+        products,
+        saveProduct,
+        addConsumer,
+        saveConsumption,
+        personAndConsumption,
+        changeTip,
+      }}
     >
       {children}
     </AppContext.Provider>

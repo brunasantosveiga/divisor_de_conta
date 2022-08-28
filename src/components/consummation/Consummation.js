@@ -3,11 +3,10 @@ import { AppContext } from "../../contexts/appContext";
 import styles from "./styles.module.css";
 
 export const Consummation = (props) => {
-  const { people, products, addConsumer } = useContext(AppContext);
+  const { people, products, addConsumer, saveConsumption } =
+    useContext(AppContext);
 
   const [click, setClick] = useState(false);
-
-  console.log("products: ", products);
 
   const buttonProduct = (person, product) => {
     addConsumer(person, product);
@@ -20,10 +19,24 @@ export const Consummation = (props) => {
     return find.people.includes(name) ? styles.active : styles.notAtive;
   };
 
+  const calculateDividedValue = () => {
+    products.map((product) => {
+      let amoutOfPeople = Object.keys(product.people).length;
+      let dividedValue = (product.value * product.number) / amoutOfPeople;
+      product["dividedValue"] = dividedValue;
+    });
+  };
+
+  const clickedNext = () => {
+    calculateDividedValue();
+    saveConsumption();
+    props.setNext(3);
+  };
+
   return (
     <div>
-      {props.next && (
-        <div>
+      {props.next === 2 && (
+        <div className={styles.container}>
           <fieldset>
             <legend>Clique nos produtos que cada pessoa consumiu:</legend>
             {people.map((person, index) => {
@@ -48,6 +61,9 @@ export const Consummation = (props) => {
               );
             })}
           </fieldset>
+          <div className={styles.divButton}>
+            <button onClick={clickedNext}>Próximo</button>
+          </div>
         </div>
       )}
     </div>

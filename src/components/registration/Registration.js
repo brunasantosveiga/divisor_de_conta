@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useContext } from "react";
 import { Consummation } from "../consummation/Consummation.js";
+import { Tip } from "../tip/Tip.js";
 import styles from "./styles.module.css";
 import { AppContext } from "../../contexts/appContext.js";
 
@@ -13,7 +14,7 @@ export const Registration = () => {
     number: 0,
     people: [],
   });
-  const [next, setNext] = useState(false);
+  const [next, setNext] = useState(1);
   const [checkFields, setCheckFields] = useState(false);
 
   useEffect(() => {
@@ -57,12 +58,14 @@ export const Registration = () => {
   };
 
   const clickedNext = () => {
-    setNext(true);
+    if (products.length > 0 && people.length > 0) {
+      setNext(2);
+    }
   };
 
   return (
     <div>
-      {!next && (
+      {next === 1 && (
         <div>
           <fieldset className={styles.fieldsetOne}>
             <legend>Insira os nomes dos clientes:</legend>
@@ -110,7 +113,8 @@ export const Registration = () => {
           </div>
         </div>
       )}
-      <Consummation next={next} />
+      <Consummation next={next} setNext={setNext} />
+      <Tip next={next} setNext={setNext} />
     </div>
   );
 };
