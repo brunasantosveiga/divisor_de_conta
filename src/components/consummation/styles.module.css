@@ -1,23 +1,30 @@
 .container {
   display: flex;
   flex-direction: column;
+  width: 100vw;
 }
 .fieldsetTwo {
   padding-bottom: 20px;
   margin: 30px 0;
   display: flex;
 }
+legend {
+  font-size: 22px;
+}
 .name {
   margin-right: 50px;
+  font-size: 17px;
 }
 .product {
   display: flex;
+  flex-direction: column;
 }
 .product .notActive {
   margin: 0 12px;
   padding: 5px 10px;
   border-radius: 2px;
   border: none;
+  font-size: 16px;
 }
 .product .active {
   margin: 0 12px;
@@ -26,14 +33,84 @@
   border: none;
   background-color: rgb(80, 80, 241);
   color: #fff;
+  font-size: 16px;
 }
+
 .divButton {
   display: flex;
   justify-content: flex-end;
 }
 .divButton button {
-  margin: 30px 0 30px 0;
-  width: 170px;
-  height: 32px;
+  margin: 30px 0;
+  width: 180px;
+  height: 35px;
   cursor: pointer;
+  font-size: 16px;
+}
+
+@media (max-width: 850px) {
+  legend {
+    font-size: 20px;
+  }
+  .name {
+    font-size: 16px;
+  }
+  .product .notActive {
+    margin: 0 10px;
+    padding: 5px 10px;
+    font-size: 15px;
+  }
+  .product .active {
+    margin: 0 10px;
+    font-size: 15px;
+  }
+  .divButton button {
+    width: 170px;
+    height: 32px;
+    font-size: 15px;
+  }
+}
+@media (max-width: 760px) {
+  legend {
+    font-size: 16px;
+  }
+  .name {
+    margin-right: 40px;
+    font-size: 14px;
+  }
+  .product .notActive {
+    margin: 0 10px;
+    font-size: 13px;
+  }
+  .product .active {
+    margin: 0 10px;
+    font-size: 13px;
+  }
+  .divButton button {
+    width: 160px;
+    height: 30px;
+    font-size: 13px;
+  }
+}
+@media (max-width: 620px) {
+  legend {
+    font-size: 15px;
+  }
+  .name {
+    margin-right: 25px;
+    font-size: 13px;
+  }
+  .product .notActive {
+    margin: 0 8px;
+    font-size: 12px;
+  }
+  .product .active {
+    margin: 0 8px;
+    font-size: 12px;
+  }
+  .divButton button {
+    width: 130px;
+    height: 28px;
+    font-size: 12px;
+  }
 }

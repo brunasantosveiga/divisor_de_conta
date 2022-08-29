@@ -17,17 +17,13 @@ export const Registration = () => {
   const [next, setNext] = useState(1);
   const [checkFields, setCheckFields] = useState(false);
 
-  useEffect(() => {
-    console.log("People: ", people);
-    console.log("Products: ", products);
-  }, [people, products]);
-
   const insertName = (event) => {
     setLastName(event.target.value);
   };
   const addClient = () => {
     if (lastName !== "") {
       savePeople(lastName);
+      setLastName("");
     }
   };
 
@@ -54,12 +50,20 @@ export const Registration = () => {
       lastProduct.number > 0
     ) {
       saveProduct(lastProduct);
+      setLastProduct({
+        name: "",
+        value: 0,
+        number: 0,
+        people: [],
+      });
     }
   };
 
   const clickedNext = () => {
     if (products.length > 0 && people.length > 0) {
       setNext(2);
+    } else {
+      setCheckFields(true);
     }
   };
 

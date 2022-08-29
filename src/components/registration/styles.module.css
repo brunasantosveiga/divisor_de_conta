@@ -3,6 +3,10 @@
   margin: 30px 0;
   display: flex;
   flex-direction: column;
+  font-size: 17px;
+}
+.fieldsetOne p {
+  font-size: 17px;
 }
 .fieldsetOne input {
   width: 500px;
@@ -10,7 +14,7 @@
   margin-top: 4px;
 }
 .fieldsetOne button {
-  margin: 10px 10px 10px 0;
+  margin: 10px 0;
   padding: 8px 14px;
   width: 180px;
   border-radius: 2px;
@@ -18,6 +22,7 @@
 button {
   border-radius: 2px;
   border: none;
+  font-size: 16px;
 }
 legend {
   font-size: 22px;
@@ -34,4 +39,128 @@ legend {
 .warning {
   margin: 10px;
   color: #f00;
+  font-size: 17px;
+}
+
+@media (max-width: 850px) {
+  .fieldsetOne {
+    font-size: 16px;
+  }
+  .fieldsetOne p {
+    font-size: 16px;
+  }
+  .fieldsetOne input {
+    width: 400px;
+    margin-bottom: 25px;
+    margin-top: 4px;
+  }
+  .fieldsetOne button {
+    width: 180px;
+  }
+  button {
+    font-size: 15px;
+  }
+  legend {
+    font-size: 20px;
+  }
+  .buttonNext {
+    width: 170px;
+    height: 32px;
+    cursor: pointer;
+  }
+  .warning {
+    font-size: 16px;
+  }
+}
+@media (max-width: 760px) {
+  .fieldsetOne {
+    font-size: 14px;
+  }
+  .fieldsetOne p {
+    font-size: 14px;
+  }
+  .fieldsetOne input {
+    width: 350px;
+    margin-bottom: 22px;
+    margin-top: 3px;
+  }
+  .fieldsetOne button {
+    margin: 8px 0;
+    padding: 7px 12px;
+    width: 160px;
+  }
+  button {
+    font-size: 13px;
+  }
+  legend {
+    font-size: 16px;
+  }
+  .warning {
+    font-size: 14px;
+  }
+  .buttonNext {
+    width: 160px;
+    height: 30px;
+  }
+}
+@media (max-width: 620px) {
+  .fieldsetOne {
+    font-size: 13px;
+  }
+  .fieldsetOne p {
+    font-size: 13px;
+  }
+  .fieldsetOne input {
+    width: 300px;
+    margin-bottom: 20px;
+    margin-top: 3px;
+  }
+  .fieldsetOne button {
+    margin: 6px 0;
+    padding: 6px 8px;
+    width: 170px;
+  }
+  button {
+    font-size: 12px;
+  }
+  legend {
+    font-size: 15px;
+  }
+  .warning {
+    font-size: 15px;
+  }
+  .buttonNext {
+    width: 150px;
+    height: 28px;
+  }
+}
+@media (max-width: 500px) {
+  .fieldsetOne {
+    font-size: 12px;
+  }
+  .fieldsetOne p {
+    font-size: 12px;
+  }
+  .fieldsetOne input {
+    width: 240px;
+    margin-bottom: 16px;
+  }
+  .fieldsetOne button {
+    margin: 4px 0;
+    padding: 6px;
+    width: 110px;
+  }
+  button {
+    font-size: 11px;
+  }
+  legend {
+    font-size: 14px;
+  }
+  .warning {
+    font-size: 13px;
+  }
+  .buttonNext {
+    width: 120px;
+    height: 25px;
+  }
 }

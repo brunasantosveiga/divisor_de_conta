@@ -2,8 +2,12 @@
   display: flex;
   margin: 20px 0;
 }
+legend {
+  font-size: 22px;
+}
 .name {
   margin-right: 50px;
+  font-size: 17px;
 }
 .active {
   margin: 0 12px;
@@ -13,6 +17,7 @@
   background-color: rgb(80, 80, 241);
   color: #fff;
   cursor: pointer;
+  font-size: 15px;
 }
 .notActive {
   margin: 0 12px;
@@ -20,6 +25,7 @@
   border-radius: 2px;
   border: none;
   cursor: pointer;
+  font-size: 15px;
 }
 
 .divButton {
@@ -27,13 +33,81 @@
   justify-content: flex-end;
 }
 .divButton button {
-  margin: 30px 0 30px 0;
-  width: 170px;
-  height: 32px;
+  margin: 30px 0;
+  width: 180px;
+  height: 35px;
   cursor: pointer;
+  font-size: 17px;
 }
 
 .divResult {
   display: flex;
-  margin: 12px 0 12px 0;
+  margin: 15px 0;
+  font-size: 17px;
+}
+
+@media (max-width: 850px) {
+  legend {
+    font-size: 20px;
+  }
+  .name {
+    font-size: 16px;
+  }
+  .active {
+    margin: 0 10px;
+    font-size: 13px;
+  }
+  .notActive {
+    margin: 0 10px;
+    font-size: 13px;
+  }
+  .divButton button {
+    width: 170px;
+    height: 32px;
+    font-size: 15px;
+  }
+  .divResult {
+    margin: 15px 0;
+    font-size: 16px;
+  }
+}
+@media (max-width: 760px) {
+  legend {
+    font-size: 16px;
+  }
+  .name {
+    font-size: 14px;
+  }
+  .divButton button {
+    width: 160px;
+    height: 30px;
+    font-size: 15px;
+  }
+  .divResult {
+    font-size: 14px;
+  }
+}
+@media (max-width: 620px) {
+  legend {
+    font-size: 15px;
+  }
+  .name {
+    font-size: 13px;
+  }
+  .active {
+    margin: 0 8px;
+    font-size: 12px;
+  }
+  .notActive {
+    margin: 0 8px;
+    font-size: 12px;
+  }
+  .divButton button {
+    width: 130px;
+    height: 28px;
+    font-size: 12px;
+  }
+  .divResult {
+    font-size: 13px;
+  }
 }

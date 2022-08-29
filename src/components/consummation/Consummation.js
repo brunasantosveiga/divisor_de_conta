@@ -16,7 +16,7 @@ export const Consummation = (props) => {
   const changeStyle = (name, item) => {
     const find = products.find((f) => f.name === item.name);
 
-    return find.people.includes(name) ? styles.active : styles.notAtive;
+    return find.people.includes(name) ? styles.active : styles.notActive;
   };
 
   const calculateDividedValue = () => {

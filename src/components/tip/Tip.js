@@ -27,7 +27,6 @@ export const Tip = (props) => {
       return person.consumption.toFixed(2);
     }
   };
-  console.log(personAndConsumption);
 
   return (
     <div>
