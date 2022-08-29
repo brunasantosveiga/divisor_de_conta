@@ -1,7 +1,6 @@
 .container {
   display: flex;
   flex-direction: column;
-  width: 100vw;
 }
 .fieldsetTwo {
   padding-bottom: 20px;
@@ -15,9 +14,9 @@ legend {
   margin-right: 50px;
   font-size: 17px;
 }
-.product {
+.divProduct {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
 }
 .product .notActive {
   margin: 0 12px;

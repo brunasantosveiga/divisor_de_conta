@@ -34,7 +34,7 @@ export const Consummation = (props) => {
   };
 
   return (
-    <div>
+    <>
       {props.next === 2 && (
         <div className={styles.container}>
           <fieldset>
@@ -45,18 +45,20 @@ export const Consummation = (props) => {
                   <div className={styles.name}>
                     {person[0].toUpperCase() + person.substr(1)}:
                   </div>
-                  {products.map((item, index) => {
-                    return (
-                      <div className={styles.product} key={index}>
-                        <button
-                          onClick={() => buttonProduct(person, item)}
-                          className={changeStyle(person, item)}
-                        >
-                          {item.name}
-                        </button>
-                      </div>
-                    );
-                  })}
+                  <div className={styles.divProduct}>
+                    {products.map((item, index) => {
+                      return (
+                        <div className={styles.product} key={index}>
+                          <button
+                            onClick={() => buttonProduct(person, item)}
+                            className={changeStyle(person, item)}
+                          >
+                            {item.name}
+                          </button>
+                        </div>
+                      );
+                    })}
+                  </div>
                 </div>
               );
             })}
@@ -66,6 +68,6 @@ export const Consummation = (props) => {
           </div>
         </div>
       )}
-    </div>
+    </>
   );
 };
