@@ -27,6 +27,20 @@ button {
 legend {
   font-size: 22px;
 }
+.addedCustomers {
+  display: flex;
+}
+.addedCustomers p {
+  margin-right: 8px;
+  color: #f00;
+}
+.addedProducts {
+  display: flex;
+}
+.addedProducts p {
+  margin-right: 8px;
+  color: #f00;
+}
 .divButtonNext {
   display: flex;
   justify-content: flex-end;

@@ -77,6 +77,23 @@ export const Registration = () => {
             Nome:
             <input type="text" value={lastName} onChange={insertName}></input>
             <button onClick={addClient}>Adicionar cliente</button>
+            {people.length !== 0 && (
+              <div className={styles.addedCustomers}>
+                <p>Clientes já adicionados:</p>
+                {people.map((APeople, index) => {
+                  return (
+                    <div key={index}>
+                      {APeople !== people[people.length - 1] && (
+                        <p>{APeople[0].toUpperCase() + APeople.substr(1)},</p>
+                      )}
+                      {APeople == people[people.length - 1] && (
+                        <p>{APeople[0].toUpperCase() + APeople.substr(1)}</p>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+            )}
           </fieldset>
           <fieldset className={styles.fieldsetOne}>
             <legend>
@@ -96,16 +113,33 @@ export const Registration = () => {
             Valor: (Ex: 59,90)
             <input
               type="number"
-              value={lastProduct.value}
+              value={lastProduct.value === 0 ? "" : lastProduct.value}
               onChange={insertProductValue}
             ></input>
             Quantidade: (Ex: 2)
             <input
               type="number"
-              value={lastProduct.number}
+              value={lastProduct.number === 0 ? "" : lastProduct.number}
               onChange={insertProductNumber}
             ></input>
             <button onClick={addProduct}>Adicionar produto</button>
+            {products.length !== 0 && (
+              <div className={styles.addedProducts}>
+                <p>Produtos já adicionados:</p>
+                {products.map((AProduct, index) => {
+                  return (
+                    <div key={index}>
+                      {AProduct !== products[products.length - 1] && (
+                        <p>{AProduct.name},</p>
+                      )}
+                      {AProduct == products[products.length - 1] && (
+                        <p>{AProduct.name}</p>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+            )}
           </fieldset>
           <div className={styles.divButtonNext}>
             {checkFields === true && (
@@ -122,3 +156,5 @@ export const Registration = () => {
     </div>
   );
 };
+//arrumar a opção de apagar os valores dos produtos
+//colocar mãozinha na seleção dos produtos
